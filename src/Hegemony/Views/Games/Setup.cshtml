@@ -1,0 +1,79 @@
+﻿<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="~/js/Site.js" type="text/javascript"></script>
+</head>
+
+@model Hegemony.Models.Nation
+
+@using System.Security.Claims
+<h1>Nation Creation Menu</h1>
+
+
+
+<h4>Forge a new Nation</h4>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Nation Name
+        @Html.TextBoxFor(model => model.Name)
+    </p>
+
+    <p>
+        Army Doctrine
+        <div class="ArmyId1"> @Html.DropDownList("ArmyId")</div>
+    </p>
+
+    <p>
+        Economic Policy
+        <div class="EconomyId1">@Html.DropDownList("EconomyId")</div>
+    </p>
+
+    <p>
+        Government Tradition
+        <div class="GovernmentId1"> @Html.DropDownList("GovernmentId")</div>
+    </p>
+
+    <p>
+        Technological Ability
+        <div class="TechnologyId1"> @Html.DropDownList("TechnologyId")</div>
+    </p>
+
+    <p>
+        Geographic Layout
+        <div class="GeographyId1">@Html.DropDownList("GeographyId")</div>
+    </p>
+    @Html.Hidden("ArmyValue")
+    @Html.Hidden("PopulationValue")
+    @Html.Hidden("ResourceValue")
+    @Html.Hidden("HappinessValue")
+    @Html.Hidden("TechnologyValue")
+    @Html.Hidden("CapitalValue")
+
+    <p>Army Size:<span id="aSizeOutput">1000</span></p>
+   
+    <span>Capital:<span id="capitalOutput">1000</span></span>
+
+            <span>Population:<span id="populationOutput">1000</span></span>
+            <span>Natrual Resources: <span id="resourceOutput">1000</span></span>
+            <span>Happiness Value:<span id="happinessOutput">1000 </span></span>
+            <span>Technology Value:<span id="technologyOutput">1000</span></span>
+
+    <input type="submit" id="submitArray" value="Setup" />
+}
+
+<h1>Descriptions!</h1>
+
+<h3>Army Description: </h3>
+<div class="ArmyResults"></div>
+<h3>Economy Description: </h3>
+<div class="EconomyResults"></div>
+<h3>Government Description: </h3>
+<div class="GovernmentResults"></div>
+<h3>Technology Description: </h3>
+<div class="TechnologyResults"></div>
+<h3>Geography Description: </h3>
+<div class="GeographyResults"></div>
+
+
+<p>@Html.ActionLink("Home", "Index")</p>
